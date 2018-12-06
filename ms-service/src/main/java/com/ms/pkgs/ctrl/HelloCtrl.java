@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
+import com.ms.pkgs.anno.Log;
 import com.ms.pkgs.conf.MysqlConf;
 import com.ms.pkgs.conf.RedisConf;
 
@@ -46,6 +47,7 @@ public class HelloCtrl {
 	 * @return String of JSON
 	 */
 	@RequestMapping("/say")
+	@Log
 	public String say(String something) {
 		Map<String, Object> map = new HashMap<String, Object>();
 
