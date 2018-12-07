@@ -23,6 +23,7 @@
 		<module>ms-gateway</module>
 		<!-- 服务调用方 -->
 		<module>ms-caller</module>
+		<module>ms-auth</module>
 	</modules>
 
 	<!-- Spring boot依赖 -->
