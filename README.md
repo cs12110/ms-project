@@ -10,19 +10,18 @@ Spring cloud 的微服务架构使用.
 
 项目架构简略图如下所示
 
-![](docs/struct.png)
+![](docs/ms-struct.png)
 
 ### 1.2 模块简介
 
-- ms-reg: 注册中心模块
 
-- ms-service: 服务提供者模块
-
-- ms-gateway: 路由模块
-
-- ms-config: 统一配置 server 模块
-
-- ms-caller: feign 负载均衡调用模块
+| 模块名称   | 功能说明               | 默认端口 | 备注 |
+| ---------- | ---------------------- | :------: | ---- |
+| ms-reg     | 注册中心模块           |   5100   | -    |
+| ms-service | 服务提供者模块         |   5200   | -    |
+| ms-gateway | 路由模块               |   5500   | -    |
+| ms-config  | 统一配置 server 模块   |   5300   | -    |
+| ms-caller  | feign 负载均衡调用模块 |   5400   | -    |
 
 ---
 

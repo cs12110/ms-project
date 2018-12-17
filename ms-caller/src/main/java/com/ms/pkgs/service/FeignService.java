@@ -3,6 +3,8 @@ package com.ms.pkgs.service;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ms.pkgs.service.fallback.FeginServiceFallbackImpl;
+
 /**
  * 调用接口
  * 
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @see
  * @since 1.0
  */
-@FeignClient(name = "ms-service")
+@FeignClient(name = "ms-service", fallback = FeginServiceFallbackImpl.class)
 public interface FeignService {
 
 	@RequestMapping("/hello/say")

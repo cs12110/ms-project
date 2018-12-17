@@ -13,7 +13,7 @@ public class FeignCtrl {
 	private FeignService feignService;
 
 	@RequestMapping("/feign/say")
-	public String feignSay(String str) {
-		return this + "->" + feignService.say(str);
+	public String feignSay(String something) {
+		return this + "->" + feignService.say(something);
 	}
 }

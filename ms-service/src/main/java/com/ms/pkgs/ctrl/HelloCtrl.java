@@ -60,6 +60,6 @@ public class HelloCtrl {
 			e.printStackTrace();
 		}
 
-		return JSON.toJSONString(map);
+		return JSON.toJSONString(map,true);
 	}
 }
