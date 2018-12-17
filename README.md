@@ -25,7 +25,10 @@ Spring cloud 的微服务架构使用.
 
 ---
 
-## 2. 开启流程
+## 2. 启动流程
+
+
+### 2.1 开启流程
 
 请遵循如下开启顺序: **ms-reg -> ms-config -> ms-service -> ms-caller -> ms-gateway.**
 
@@ -35,6 +38,30 @@ ms-config 的配置 git 上面的文件有: `ms-auth.properties`,`ms-auth-dev.pr
 
 项目默认使用的配置文件为: `spring.application.name`+`spring.profiles.active`+`properties/yml`.
 
+
+
+### 2.2 动态路由数据库脚本
+
+```sql
+DROP TABLE IF EXISTS `gateway_api_t`;
+CREATE TABLE `gateway_api_t` (
+  `id` varchar(50) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `service_id` varchar(50) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `retryable` tinyint(1) DEFAULT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `strip_prefix` int(11) DEFAULT NULL,
+  `api_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of gateway_api_t
+-- ----------------------------
+INSERT INTO `gateway_api_t` VALUES ('ms-feign', '/feign/**', 'ms-feign', null, '0', '1', '1', null);
+INSERT INTO `gateway_api_t` VALUES ('ms-service', '/service/**', 'ms-service', null, '0', '1', '1', null);
+```
 ---
 
 ## 3. 其他
