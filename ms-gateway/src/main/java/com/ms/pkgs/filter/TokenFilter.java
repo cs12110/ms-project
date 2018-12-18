@@ -20,9 +20,9 @@ import com.netflix.zuul.context.RequestContext;
  * @since 1.0
  */
 @Component
-public class SimpleFilter extends ZuulFilter {
+public class TokenFilter extends ZuulFilter {
 
-	private static Logger logger = LoggerFactory.getLogger(SimpleFilter.class);
+	private static Logger logger = LoggerFactory.getLogger(TokenFilter.class);
 
 	/**
 	 * 设置为true,才会拦截
@@ -40,6 +40,21 @@ public class SimpleFilter extends ZuulFilter {
 		HttpServletRequest request = context.getRequest();
 
 		logger.info(request.getRequestURI());
+
+		// 校验请求token
+		String token = request.getParameter("token");
+
+		// 非法token
+		if (null == token || "".equals(token.trim())) {
+			// 不对请求进行路由
+			context.setSendZuulResponse(false);
+			context.setResponseStatusCode(400);
+			context.setResponseBody("token is empty");
+		} else {
+			// 对请求进行路由
+			context.setSendZuulResponse(true);
+			context.setResponseStatusCode(200);
+		}
 
 		return null;
 	}

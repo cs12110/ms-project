@@ -31,6 +31,8 @@ public class DynamicRouteHandler extends SimpleRouteLocator implements Refreshab
 
 	private static Logger logger = LoggerFactory.getLogger(DynamicRouteHandler.class);
 
+	private static String beforeJsonStr = "";
+
 	public DynamicRouteHandler(String servletPath, ZuulProperties properties) {
 		super(servletPath, properties);
 	}
@@ -42,7 +44,12 @@ public class DynamicRouteHandler extends SimpleRouteLocator implements Refreshab
 		routeMap.putAll(loadFromDb());
 
 		if (logger.isDebugEnabled()) {
-			logger.info("{}", JSON.toJSONString(routeMap, true));
+			String json = JSON.toJSONString(routeMap, true);
+
+			if (!json.equals(beforeJsonStr)) {
+				logger.info("{}", json);
+				beforeJsonStr = json;
+			}
 		}
 
 		return routeMap;
