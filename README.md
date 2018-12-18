@@ -22,6 +22,7 @@ Spring cloud 的微服务架构使用.
 | ms-gateway | 路由模块               |   5500   | -    |
 | ms-config  | 统一配置 server 模块   |   5300   | -    |
 | ms-caller  | feign 负载均衡调用模块 |   5400   | -    |
+| ms-auth    | 权限校验模块           |   5600   | -    |
 
 ---
 
