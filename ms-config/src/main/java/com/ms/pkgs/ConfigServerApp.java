@@ -10,12 +10,11 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * 配置中心
- * 
+ *
  *
  * <p>
  *
  * @author cs12110 2018年12月6日
- * @see
  * @since 1.0
  */
 @SpringBootApplication
@@ -23,14 +22,13 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @EnableConfigServer
 public class ConfigServerApp {
 
-	private static Logger logger = LoggerFactory.getLogger(ConfigServerApp.class);
+    private static Logger logger = LoggerFactory.getLogger(ConfigServerApp.class);
 
-	@Value("${server.port}")
-	private String port;
+    @Value("${server.port}")
+    private String port;
 
-	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerApp.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(ConfigServerApp.class, args);
 
-		logger.info("Using port is:{}");
-	}
+    }
 }

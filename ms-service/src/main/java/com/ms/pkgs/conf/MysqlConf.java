@@ -1,75 +1,55 @@
 package com.ms.pkgs.conf;
 
-import java.io.Serializable;
-
+import com.alibaba.fastjson.JSON;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
 
 /**
  * mysql配置
- * 
+ *
  *
  * <p>
  *
  * @author cs12110 2018年12月6日
- * @see
  * @since 1.0
  */
-@Configuration
+@Component
+@Data
 public class MysqlConf implements Serializable, Cloneable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Value("${mysql.url}")
-	private String url;
+    @Value("${mysql.url}")
+    private String url;
 
-	@Value("${mysql.user}")
-	private String user;
+    @Value("${mysql.user}")
+    private String user;
 
-	@Value("${mysql.password}")
-	private String password;
+    @Value("${mysql.password}")
+    private String password;
 
-	public String getUrl() {
-		return url;
-	}
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    @Override
+    public MysqlConf clone() {
+        MysqlConf conf = null;
+        try {
+            conf = (MysqlConf) super.clone();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-	public String getUser() {
-		return user;
-	}
+        return conf;
+    }
 
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public MysqlConf clone() {
-		MysqlConf conf = null;
-		try {
-			conf = (MysqlConf) super.clone();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return conf;
-	}
-
-	@Override
-	public String toString() {
-		return "MysqlConf [url=" + url + ", user=" + user + ", password=" + password + "]";
-	}
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 
 }

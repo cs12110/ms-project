@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 注册中心
- * 
+ *
  *
  * <p>
  *
  * @author cs12110 2018年12月6日
- * @see
  * @since 1.0
  */
 @Configuration
@@ -22,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegApp {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RegApp.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RegApp.class, args);
+    }
 }
