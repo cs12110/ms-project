@@ -1,5 +1,6 @@
-package com.ms.pkgs.handler;
+package com.ms.pkgs.conf;
 
+import com.ms.pkgs.handler.DynamicRouteHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Component;
  * <p>
  *
  * @author cs12110 2018年12月17日下午3:24:24
- * @see
  * @since 1.0
  */
 @Component

@@ -12,7 +12,6 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * <p>
  *
  * @author cs12110 2018年12月6日
- * @see
  * @since 1.0
  */
 @EnableEurekaClient

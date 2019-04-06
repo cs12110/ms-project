@@ -14,7 +14,6 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
  * feign继承了ribbon和hystrix,可以实现负载均衡+熔断
  *
  * @author cs12110 2018年12月6日
- * @see
  * @since 1.0
  */
 @SpringBootApplication
